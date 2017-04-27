@@ -14,8 +14,14 @@
 
         <style type="text/css">
             #iframeContainer, #iframeContainer iframe {
-                width: 50vw;
+                width: 48vw;
                 height: 100vh;
+                float: left;
+            }
+
+            #editor {
+                width: 48vw;
+                float: left;
             }
         </style>
 
@@ -25,12 +31,27 @@
 
         <div id="iframeContainer"></div>
 
+        <div id="editor">
+            <form method="post">
+                <textarea id="mytextarea">Hello, World!</textarea>
+            </form>
+        </div><!-- editor -->
+
 
         <script src="js/vendor/jquery-1.11.2.min.js"></script>
 
         <script src='js/pdfmake.min.js'></script>
         <script src='js/vfs_fonts.js'></script>
 
-        <script src="js/main.js"></script>
+        <script src='js/tinymce/tinymce.min.js'></script>
+
+        <!-- <script src="js/main.js"></script> -->
+
+        <script>
+            tinymce.init({
+                selector: '#mytextarea',
+            })
+        </script>
+
     </body>
 </html>

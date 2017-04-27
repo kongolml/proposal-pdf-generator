@@ -42,10 +42,6 @@ var brandStyles = {
 
 var docDefinition = {
     pageSize: 'A4',
-    background: {
-        image: images.bg,
-        width: 550
-    },
 
     info: {
         title: 'Ciklum Proposal: Deloitte',
@@ -60,9 +56,14 @@ var docDefinition = {
         }
     },
 
-    /*background: function(currentPage){
-        return 'shit';
-    },*/
+    background: function(currentPage){
+        if( currentPage!=1 ){
+            return {
+                image: images.bg,
+                width: 550
+            }
+        }
+    },
 
     content: [
         // Table of content:
@@ -334,9 +335,13 @@ var docDefinition = {
                 'The structure is the same at each delivery location, despite the different number of FTEs.'
             ]
         },
+
+
+        // IT Infrastructure
         {
             text: 'IT Infrastructure',
-            style: ['strong']
+            style: ['title'],
+            pageBreak: 'before'
         },
         {
             text: [
